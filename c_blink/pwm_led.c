@@ -6,17 +6,18 @@
 void set_pwm(int pin, int dry_cycle, int time)
 {
 	const int PWM_FREQ = 200;
-	int dly = 0;
+	int dly	 = 0;
 	int i = 0;
 	int j = 0;
 	dly = 1000 / PWM_FREQ;		/*delay in ms for set freq*/
+	printf("checcck\n");
 	while (j * dly < time || time == -1)
 	{
 		if (i == PWM_FREQ)
 			i = 0;
 		if (i < PWM_FREQ * dry_cycle / 100)
 			digitalWrite(PIN_PWM, HIGH);
-		else
+		else		
 			digitalWrite(PIN_PWM, LOW);
 		i++;
 		j++;
