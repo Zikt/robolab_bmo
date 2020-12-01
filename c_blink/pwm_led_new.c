@@ -1,10 +1,11 @@
-y#include <unistd.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <wiringPi.h>
-#define PIN_PWM 2
-#define HIGH 1
-#define LOW 0
+#include <math.h>
 
+#define PIN_PWM 2
+//#define HIGH 1
+//#define LOW 0
 
 /*
 void digitalWrite(int pin, int val)
@@ -75,10 +76,11 @@ int	main(void)
 	int dry_cycle;
 
 	wiringPiSetup();
-	dry_cycle = 60;
+	pinMode (PIN_PWM, OUTPUT);
+	dry_cycle = 7;
 	digitalWrite(PIN_PWM, HIGH);
 	delay(3000);
 	digitalWrite(PIN_PWM, LOW);
-	//  set_pwm(PIN_PWM, dry_cycle, 100, 30000);
+	set_pwm(PIN_PWM, dry_cycle, 50, 10000);
 	return (0);
 }
