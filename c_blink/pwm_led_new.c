@@ -1,19 +1,20 @@
 #include <unistd.h>
 #include <stdio.h>
+#include <wiringPi.h>
 #define PIN_PWM 2
 #define HIGH 1
 #define LOW 0
 
-void digitalWrite(int pin, int val)
-{
-	// printf("pin: %d\n", pin);
-	printf("%c", (val) ? '-': '_');
-}
+// void digitalWrite(int pin, int val)
+// {
+// 	// printf("pin: %d\n", pin);
+// 	printf("%c", (val) ? '-': '_');
+// }
 
-void delay(unsigned int timer)
-{
-	printf("(%d)", timer);
-}
+// void delay(unsigned int timer)
+// {
+// 	printf("(%d)", timer);
+// }
 
 
 /*
@@ -76,6 +77,6 @@ int	main(void)
 	digitalWrite(PIN_PWM, HIGH);
 	delay(3000);
 	digitalWrite(PIN_PWM, LOW);
-	set_pwm(PIN_PWM, dry_cycle, 100, 100);
+	// set_pwm(PIN_PWM, dry_cycle, 100, 100);
 	return (0);
 }
