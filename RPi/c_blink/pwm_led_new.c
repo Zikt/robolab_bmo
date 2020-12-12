@@ -1,21 +1,24 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <wiringPi.h>
+#include <math.h>
+
 #define PIN_PWM 2
-#define HIGH 1
-#define LOW 0
+//#define HIGH 1
+//#define LOW 0
 
-// void digitalWrite(int pin, int val)
-// {
-// 	// printf("pin: %d\n", pin);
-// 	printf("%c", (val) ? '-': '_');
-// }
+/*
+void digitalWrite(int pin, int val)
+{			
+	// printf("pin: %d\n", pin);
+	printf("%c", (val) ? '-': '_');
+}
 
-// void delay(unsigned int timer)
-// {
-// 	printf("(%d)", timer);
-// }
-
+void delay(unsigned int timer)
+{
+	printf("(%d)", timer);
+}
+*/
 
 /*
 The guaranteed width of the PWM is 1 ms.
@@ -34,7 +37,7 @@ void set_pwm(unsigned int pin, unsigned int dry_cycle, unsigned int freq, ssize_
 	float min_quot = 0;
 	float max_quot = 0;
 	unsigned int n = 0;
-	int signal = 1;
+		int signal = 1;
 
 	if (dry_cycle > 100 || freq > 1000 || freq == 0)
 		return ;
@@ -72,11 +75,12 @@ int	main(void)
 {
 	int dry_cycle;
 
-	// wiringPiSetup();
-	dry_cycle = 60;
+	wiringPiSetup();
+	pinMode (PIN_PWM, OUTPUT);
+	dry_cycle = 7;
 	digitalWrite(PIN_PWM, HIGH);
 	delay(3000);
 	digitalWrite(PIN_PWM, LOW);
-	// set_pwm(PIN_PWM, dry_cycle, 100, 100);
+	set_pwm(PIN_PWM, dry_cycle, 50, 10000);
 	return (0);
 }
