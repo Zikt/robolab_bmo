@@ -27,7 +27,7 @@ void loop() {
   digitalWrite(led_pin, LOW);
   delay(1000);
 }
-
+*/
 /*
 Как видим, программа реагирует на нажатие кнопки, только во время "бодрствования"
 
@@ -75,7 +75,7 @@ void loop() {
   digitalWrite(led_pin, LOW);
   delay(1000);
 }
-
+*/
 /*
 *Важная информация мелким шрифтом где-то внизу
 
@@ -96,11 +96,12 @@ void loop() {
   Рассмотрим использование перемнной типа volatile на примере изменения флага в аппаратном прерывании.
   Показать поведение перенной flag с volatile и без него.
 */
+
 const int led_pin = 13;
 const int button_pin = 2;
 boolean button;
-int flag = 0;
-//volatile int flag = 0;
+//int flag = 0;
+volatile int flag = 0;
 
 void setup() {
   pinMode(led_pin, OUTPUT);
